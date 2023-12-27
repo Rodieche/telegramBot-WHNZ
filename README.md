@@ -49,3 +49,7 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Thank you for using the Working Holiday NZ Bot! Your adventure in New Zealand just got a bit easier. Explore the code, contribute, and let's make the Working Holiday experience even more enriching for everyone!
+
+---
+
+Software developed by [0ra4ngeH4t](https://linkedin.com/in/rechenique)
