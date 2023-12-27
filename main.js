@@ -202,7 +202,7 @@ ${(f['recommendation']? '✨ Recomendacion: <i>' + f['recommendation'] + '</i>':
 bot.onText(/\/about/, async (msg) => {
     const chatId = msg.chat.id;
     const chatType = msg.chat.type;
-    let text = 'Este bot fue desarrollado por Central Node para ayudar a Latinos en NZ. Por cualquier duda o consulta pueden escribirnos a nuesto <a href="https://www.linkedin.com/company/central-node">Linkedin</a>';
+    let text = 'Este bot fue desarrollado por Central Node para ayudar a Latinos en NZ. Por cualquier duda o consulta pueden escribirnos a nuesto <a href="https://www.linkedin.com/in/rechenique">Linkedin</a>';
 
     const options = {
         disable_web_page_preview: true,
