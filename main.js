@@ -128,7 +128,6 @@ bot.onText(/\/faq/, async (msg) => {
     const chatId = msg.chat.id;
     const chatType = msg.chat.type;
     const userLanguage = thelpers.getUserLanguage(msg.from.language_code);
-    let text = '';
 
     const options = {
         disable_web_page_preview: true,
@@ -136,7 +135,6 @@ bot.onText(/\/faq/, async (msg) => {
     };
 
     if (chatType === 'group' || chatType === 'supergroup') {
-        // Si es un grupo, intentamos obtener el ID del mensaje original
         const replyToMessageId = msg.reply_to_message ? msg.reply_to_message.message_id : null;
 
         if (replyToMessageId) {
@@ -151,7 +149,7 @@ bot.onText(/\/faq/, async (msg) => {
 <b>${f['pregunta']}</b>
 <i>${f['respuesta']}</i>
     `;
-            text += faq;
+    bot.sendMessage(chatId, faq, options);
         });
     }else{
         resp.forEach(function(f){
@@ -159,17 +157,14 @@ bot.onText(/\/faq/, async (msg) => {
 <b>${f['question']}</b>
 <i>${f['answer']}</i>
     `;
-            text += faq;
+            bot.sendMessage(chatId, faq, options);
         });
     }
-
-    bot.sendMessage(chatId,text, options);
 });
 
 bot.onText(/\/firststeps/, async (msg) => {
     const chatId = msg.chat.id;
     const chatType = msg.chat.type;
-    let text = '';
 
     const options = {
         disable_web_page_preview: true,
@@ -177,7 +172,6 @@ bot.onText(/\/firststeps/, async (msg) => {
     };
 
     if (chatType === 'group' || chatType === 'supergroup') {
-        // Si es un grupo, intentamos obtener el ID del mensaje original
         const replyToMessageId = msg.reply_to_message ? msg.reply_to_message.message_id : null;
 
         if (replyToMessageId) {
@@ -192,11 +186,8 @@ bot.onText(/\/firststeps/, async (msg) => {
 ${f['description']}
 ${(f['recommendation']? '✨ Recomendacion: <i>' + f['recommendation'] + '</i>': null)}
     `;
-            text += fs;
+    bot.sendMessage(chatId, fs, options);
     });
-
-
-    bot.sendMessage(chatId,text, options);
 });
 
 bot.onText(/\/about/, async (msg) => {
@@ -218,5 +209,5 @@ bot.onText(/\/about/, async (msg) => {
         }
     }
 
-    bot.sendMessage(chatId,text, options);
+    bot.sendMessage(chatId, text, options);
 });
