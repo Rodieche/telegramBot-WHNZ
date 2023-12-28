@@ -165,6 +165,7 @@ bot.onText(/\/faq/, async (msg) => {
 bot.onText(/\/firststeps/, async (msg) => {
     const chatId = msg.chat.id;
     const chatType = msg.chat.type;
+    let text = '';
 
     const options = {
         disable_web_page_preview: true,
@@ -186,8 +187,10 @@ bot.onText(/\/firststeps/, async (msg) => {
 ${f['description']}
 ${(f['recommendation']? '✨ Recomendacion: <i>' + f['recommendation'] + '</i>': null)}
     `;
-    bot.sendMessage(chatId, fs, options);
+        text += fs;
     });
+
+    bot.sendMessage(chatId, text, options);
 });
 
 bot.onText(/\/about/, async (msg) => {
