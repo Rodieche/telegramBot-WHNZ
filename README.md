@@ -52,6 +52,17 @@ To get started with the Working Holiday NZ Bot, follow these simple steps:
    node bot.js
    ```
 
+## Features
+- [x] Make the about section
+- [x] Add First steps module
+- [x] Add FAQ module
+- [x] Connection with Notion
+- [x] Add recruitment list to display
+- [x] View eveery agency standalone
+- [x] Get current currency excange
+- [ ] Connect to the list of accredited employers
+- [ ] Check if a company is accredited
+
 ## Contributing
 
 We welcome contributions to enhance and expand the functionality of the Working Holiday NZ Bot. Feel free to fork the repository, make improvements, and submit a pull request.
