@@ -8,7 +8,8 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 
 const MAX_MESSAGE_LENGTH = 4000;
 
-const commandList = `/recruitments - Lista de reclutadoras
+const commandList = `
+/recruitments - Lista de reclutadoras
     
 /exchange - Valor del cambio del dolar Estadounidense
 
