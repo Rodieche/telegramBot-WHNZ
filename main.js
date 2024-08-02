@@ -3,6 +3,7 @@ const TelegramBot = require('node-telegram-bot-api');
 
 const helpers = require('./helpers');
 const thelpers = require('./telegram_helpers');
+const { checkAccreditedEmployer } = require('./config/AccreditedEmployment');
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 
@@ -252,4 +253,38 @@ bot.onText(/\/help/, async (msg) => {
     }
 
     bot.sendMessage(chatId, commandList, options);
+});
+
+
+bot.onText(/\/accredited\s+(.+)/, async (msg) => {
+    const chatId = msg.chat.id;
+    const chatType = msg.chat.type;
+
+    const options = {
+        disable_web_page_preview: true,
+        parse_mode: 'HTML'
+    };
+
+    if (chatType === 'group' || chatType === 'supergroup') {
+        // Si es un grupo, intentamos obtener el ID del mensaje original
+        const replyToMessageId = msg.reply_to_message ? msg.reply_to_message.message_id : null;
+
+        if (replyToMessageId) {
+            options.reply_to_message_id = replyToMessageId;
+        }
+    }
+
+    const channel = msg.reply_to_message?.forum_topic_created?.name;
+    const employerName = msg.text.split(' ').slice(1).join(' ');
+
+    let accreditedEmployer = await checkAccreditedEmployer(employerName);
+    accreditedEmployer = accreditedEmployer.replace('"','').slice(0, -1)
+
+    console.log(accreditedEmployer);
+
+    bot.sendMessage(chatId, accreditedEmployer, options);
+
+
+
+    
 });
