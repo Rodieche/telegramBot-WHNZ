@@ -16,7 +16,7 @@ const checkAccreditedEmployer = async (employer = '') => {
         let strEmployers = '';
 
         if(!items) return;
-        console.log(items);
+        // console.log(items);
 
         items.forEach(function(e){
             strEmployers += `Accredited Employer: <b>${e.employerName}</b> found - NZBZ: ${e.nzbn} - Trading Name: ${e.tradingName} \n\n`;
