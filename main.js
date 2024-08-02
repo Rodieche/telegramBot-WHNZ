@@ -277,12 +277,13 @@ bot.onText(/\/accredited\s+(.+)/, async (msg) => {
     const channel = msg.reply_to_message?.forum_topic_created?.name;
     const employerName = msg.text.split(' ').slice(1).join(' ');
 
-    let accreditedEmployer = await checkAccreditedEmployer(employerName);
-    accreditedEmployer = accreditedEmployer.replace('"','').slice(0, -1)
+    const accreditedEmployer = await checkAccreditedEmployer(employerName);
 
-    console.log(accreditedEmployer);
+    const messageReplay = accreditedEmployer? accreditedEmployer.replace('"','').slice(0, -1) : 'No accredited employer found';
 
-    bot.sendMessage(chatId, accreditedEmployer, options);
+    // console.log(accreditedEmployer);
+
+    bot.sendMessage(chatId, messageReplay, options);
 
 
 

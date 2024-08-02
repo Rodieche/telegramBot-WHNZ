@@ -10,19 +10,27 @@ Welcome to the Working Holiday NZ Bot repository! This Telegram bot is crafted t
    /recruitments
    - Access an up-to-date list of recruitment agencies in New Zealand, streamlining the job search process.
 
-2. **Currency Exchange Rates (USD to NZD and vice versa):**
+2. **Agency information**
+   /agency __id__ (id is the number of agency give from /recuitments)
+   - Get information of the selected agency
+
+3. **Currency Exchange Rates (USD to NZD and vice versa):**
    /exchange
    - Obtain the current exchange rate between the US Dollar (USD) and the New Zealand Dollar (NZD), making it easy to track currency fluctuations.
 
-3. **First Steps in New Zealand:**
+4. **First Steps in New Zealand:**
    /firststeps
    - Detailed guidance on the crucial first steps upon arriving in New Zealand, including obtaining a phone line, proof of address, and opening a bank account.
 
-4. **Frequently Asked Questions (FAQ):**
+5. **Frequently Asked Questions (FAQ):**
    /faq
    - Compile answers to frequently asked questions related to the Working Holiday experience in New Zealand, providing a quick and reliable source of information.
 
-5.**About Me**
+6. **Check Accredited Employer**
+   /accredited __employer name__
+   - Get information from Immigration NZ about an employer and check if it is accredited.
+
+7. **About Me**
    /about
    - Information about the propouse of the bot and the Developer
 
@@ -38,7 +46,7 @@ To get started with the Working Holiday NZ Bot, follow these simple steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/working-holiday-nz-bot.git
+   git clone https://github.com/Rodieche/working-holiday-nz-bot.git
    ```
 
 2. **Install Dependencies:**
@@ -60,8 +68,8 @@ To get started with the Working Holiday NZ Bot, follow these simple steps:
 - [x] Add recruitment list to display
 - [x] View eveery agency standalone
 - [x] Get current currency excange
-- [ ] Connect to the list of accredited employers
-- [ ] Check if a company is accredited
+- [x] Connect to the list of accredited employers: update 02/08/2024
+- [x] Check if a company is accredited: updated 02/08/2024
 
 ## Contributing
 
