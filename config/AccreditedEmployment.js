@@ -6,22 +6,26 @@ const headers = {
 }
 
 const checkAccreditedEmployer = async (employer = '') => {
-    if (!employer || employer == '') return;
+    if (!employer || employer == '' || employer.length < 3) return 'You must entry more than 3 letters to searcht';
 
     const endpoint = `${base_url}/${employer}`
 
-    const { data } = await axios.get(endpoint, { headers });
-    const { items } = data;
-    let strEmployers = '';
+    try{
+        const { data } = await axios.get(endpoint, { headers });
+        const { items } = data;
+        let strEmployers = '';
 
-    if(!items) return;
-    console.log(items);
+        if(!items) return;
+        console.log(items);
 
-    items.forEach(function(e){
-        strEmployers += `Accredited Employer: <b>${e.employerName}</b> found - NZBZ: ${e.nzbn} - Trading Name: ${e.tradingName} \n\n`;
-    });
+        items.forEach(function(e){
+            strEmployers += `Accredited Employer: <b>${e.employerName}</b> found - NZBZ: ${e.nzbn} - Trading Name: ${e.tradingName} \n\n`;
+        });
 
-    return strEmployers;
+        return strEmployers;
+    }catch(e){
+        console.log(e);
+    }
 }
 
 module.exports = {
